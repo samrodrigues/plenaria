@@ -5,8 +5,9 @@
         "build": "vite build"
     },
     "dependencies": {
-        "vue": "^3.2.25",
-        "detect-browser": "^5.2.1"
+        "detect-browser": "^5.2.1",
+        "uuid": "^8.3.2",
+        "vue": "^3.2.25"
     },
     "devDependencies": {
         "@vitejs/plugin-vue": "^2.0.0",

@@ -14,7 +14,9 @@
         <em v-if="member && member.dob" class="text-gray-300 italic">{{member.dob}}</em>
       </div>
       <div class="mt-1">
-        <input type="text" v-model="dob" placeholder="YYYY-MM-DD">
+        <input type="number" v-model="dob.day" placeholder="DD" min="1" max="31">
+        <input type="number" v-model="dob.month" placeholder="MM" min="1" max="12">
+        <input type="number" v-model="dob.year" placeholder="YYYY" min="1900" max="2100">
       </div>
       <div class="mt-1">
         <button @click="validateMember" class="bg-gray-800 hover:bg-gray-400 text-white font-bold py-2 px-4">Próximo &gt;</button>
@@ -36,7 +38,8 @@
 </template>
 
 <script>
-import {title, location, timeString, votesPerMember, candidates} from "@/settings";
+import { v5 as uuidv5 } from 'uuid';
+import {title, location, timeString, votesPerMember, candidates, UUID_NAMESPACE} from "@/settings";
 import {members} from "@/members";
 
 export default {
@@ -45,7 +48,11 @@ export default {
     return {
       title, location, timeString, votesPerMember, candidates, members,
       member: "Selecione",
-      dob: null,
+      dob: {
+        day: null,
+        month: null,
+        year: null,
+      },
       isMemberValidated: false,
       vote: []
     }
@@ -57,16 +64,30 @@ export default {
         maxNumVotes = this.candidates.length;
       }
       return `${maxNumVotes} candidato${maxNumVotes > 1 ? 's' : ''}`
-    }
+    },
   },
   methods: {
+    getDob() {
+      const formattedDob = `${this.dob.year}-${('0'+this.dob.month).slice(-2)}-${('0'+this.dob.day).slice(-2)}`
+      console.log(formattedDob);
+      return formattedDob;
+    },
     validateMember() {
-      if (this.dob === this.member?.dob) {
+      if (this.getDob() === this.member?.dob) {
         this.isMemberValidated = true;
       }
     },
     sendVote() {
+      const vote = {
+        hash: uuidv5(`${this.member.name}${this.member.dob}`, UUID_NAMESPACE),
+        voteList: [...this.vote]
+      };
+      try {
+        axios.post('/api/vote', vote)
+      }
+      catch(e) {
 
+      }
     }
   }
 }
