@@ -34,7 +34,7 @@
       </div>
       <div class="flex-grow-1">
         <div>
-          <label for="month" class="block text-sm font-medium text-gray-700">Location</label>
+          <label for="month" class="block text-sm font-medium text-gray-700">Mês</label>
           <select v-model="dob.month" id="month" name="location" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md">
             <option hidden selected value="null">Mês</option>
             <option value="01">Janeiro</option>
