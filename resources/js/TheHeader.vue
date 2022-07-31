@@ -1,7 +1,8 @@
 <template>
-  <div class="text-center">
-    <h1 class="text-xl">{{ title }}</h1>
-    <h2 class="text-lg">{{ location }} - {{timeString}}</h2>
+  <div class="text-center pb-5">
+    <h1 class="text-xl bold">{{ title }}</h1>
+    <h2 class="text-md">{{ location }}</h2>
+    <h3 class="text-sm">{{timeString}}</h3>
   </div>
 </template>
 

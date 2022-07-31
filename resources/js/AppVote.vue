@@ -9,14 +9,14 @@
             <label :for="`candidate-${candidate.id}`" class="font-medium text-gray-700 select-none">{{ candidate.name }}</label>
           </div>
           <div class="ml-3 flex items-center h-5">
-            <input :id="`candidate-${candidate.id}`" :name="`candidate-${candidate.id}`" v-model="vote" :value="candidate.id" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" />
+            <input :id="`candidate-${candidate.id}`" :name="`candidate-${candidate.id}`" v-model="vote" :value="candidate.id" type="checkbox" class="focus:ring-emerald-500 h-4 w-4 text-emerald-600 border-gray-300 rounded" />
           </div>
         </div>
       </div>
     </fieldset>
 
     <div class="mt-5">
-      <button @click="sendVote" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Confirmar</button>
+      <button @click="sendVote" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500">Confirmar</button>
     </div>
   </div>
 </template>

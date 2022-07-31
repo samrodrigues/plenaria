@@ -1,9 +1,13 @@
 <template>
-  <div class="container mx-auto py-5 px-3">
-    <TheHeader />
-    <AppCheckIn v-if="status === 0" @validated="onValidated"/>
-    <AppVote v-if="status === 1" @confirmed="onConfirmed" :member="member"/>
-    <AppConfirmation v-if="status > 1" :status="status"/>
+  <div class="px-3 py-5">
+    <div class="container mx-auto max-w-md">
+      <div class="bg-white overflow-hidden shadow rounded-lg py-5 px-3">
+        <TheHeader />
+        <AppCheckIn v-if="status === 0" @validated="onValidated"/>
+        <AppVote v-if="status === 1" @confirmed="onConfirmed" :member="member"/>
+        <AppConfirmation v-if="status > 1" :status="status"/>
+      </div>
+    </div>
   </div>
 </template>
 
