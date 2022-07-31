@@ -53,8 +53,7 @@ export default {
         voteList: [...this.vote]
       };
       try {
-        console.log(vote)
-        //await axios.post('/api/vote', vote)
+        await axios.post('/api/vote', vote)
         this.$emit('confirmed', 2);
         this.loading = false;
       }
