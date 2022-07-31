@@ -5,17 +5,23 @@
         "build": "vite build"
     },
     "dependencies": {
+        "@headlessui/vue": "^1.6.7",
+        "@heroicons/vue": "^1.0.6",
+        "@tailwindcss/forms": "^0.5.2",
         "detect-browser": "^5.2.1",
-        "uuid": "^8.3.2",
+        "object-hash": "^3.0.0",
         "vue": "^3.2.25"
     },
     "devDependencies": {
         "@vitejs/plugin-vue": "^2.0.0",
         "@vue/compiler-sfc": "^3.2.6",
-        "prettier": "^2.4.0",
-        "sass": "^1.40.1",
+        "autoprefixer": "^10.4.8",
         "axios": "^0.25",
         "laravel-vite-plugin": "^0.4.0",
+        "postcss": "^8.4.14",
+        "prettier": "^2.4.0",
+        "sass": "^1.40.1",
+        "tailwindcss": "^3.1.7",
         "vite": "^2.9.11"
     }
 }
