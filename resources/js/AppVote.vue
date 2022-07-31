@@ -1,10 +1,10 @@
 <template>
   <div class="mt-3">
-    <p>Selecione os candidatos em quem deseja votar. Você pode escolher até {{maxAllowedCandidates}}.</p>
-    <fieldset>
-      <legend class="text-lg font-medium text-gray-900">Candidatos</legend>
+    <fieldset v-for="poll in polls" :key="poll.key" class="mt-3">
+      <legend class="text-md mt-3 font-medium text-gray-900">{{ poll.title }}</legend>
+      <p class="text-sm">Selecione os candidatos em quem deseja votar.<br>Você pode escolher até {{getMaxAllowedCandidates(poll)}}.</p>
       <div class="mt-4 border-t border-b border-gray-200 divide-y divide-gray-200">
-        <div v-for="(candidate, candidateIdx) in candidates" :key="candidateIdx" class="relative flex items-start py-4">
+        <div v-for="(candidate, candidateIdx) in poll.candidates" :key="candidateIdx" class="relative flex items-start py-4">
           <div class="min-w-0 flex-1 text-sm">
             <label :for="`candidate-${candidate.id}`" class="font-medium text-gray-700 select-none">{{ candidate.name }}</label>
           </div>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import {votesPerMember, candidates} from "./settings";
+import {polls} from "./settings";
 import hash from "object-hash";
 
 export default {
@@ -30,21 +30,18 @@ export default {
   props: ["member"],
   data() {
     return {
-      votesPerMember,
-      candidates,
+      polls,
       vote: []
     }
   },
-  computed: {
-    maxAllowedCandidates() {
+  methods: {
+    getMaxAllowedCandidates(poll) {
       let maxNumVotes = 0;
-      if (!this.votesPerMember) {
-        maxNumVotes = this.candidates.length;
+      if (!poll.votesPerMember) {
+        maxNumVotes = poll.candidates.length;
       }
       return `${maxNumVotes} candidato${maxNumVotes > 1 ? 's' : ''}`
     },
-  },
-  methods: {
     async sendVote() {
       this.loading = true;
       const {name, dob} = this.member;

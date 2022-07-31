@@ -22,9 +22,7 @@ class VoteController extends Controller
             }
             return new Response([],204);
         } catch (\Exception $e) {
-            dump($e);
-            die();
-            return new Response([],500);
+            return new Response([],400);
         }
 
     }
