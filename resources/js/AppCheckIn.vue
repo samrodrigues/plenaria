@@ -59,6 +59,7 @@
         </div>
       </div>
     </div>
+    <AppConfirmation :status="4" v-if="isInvalid" class="my-3"/>
     <div class="mt-5">
       <button @click="validateMember" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500">Avançar &gt;</button>
     </div>
@@ -76,10 +77,13 @@ import {
   ComboboxOption,
   ComboboxOptions,
 } from '@headlessui/vue'
+import AppConfirmation from "./AppConfirmation.vue";
+
 
 export default {
   name: "AppCheckIn",
   components: {
+    AppConfirmation,
     CheckIcon,
     SelectorIcon,
     Combobox,
@@ -99,6 +103,7 @@ export default {
         month: null,
         year: null,
       },
+      isInvalid: false,
     }
   },
   computed: {
@@ -117,7 +122,10 @@ export default {
     },
     validateMember() {
       if (this.getDob() === this.member?.dob) {
+        this.isInvalid = false;
         this.$emit('validated', {...this.member});
+      } else {
+        this.isInvalid = true;
       }
     },
   }
