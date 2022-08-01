@@ -15,7 +15,7 @@ class VoteController extends Controller
         $hash = $request->hash;
         try {
             // blank vote
-            if (isEmpty($voteList)) {
+            if (count($voteList) == 0) {
                 $vote = new Vote([
                     'hash' => $hash,
                     'vote' => 0
