@@ -112,7 +112,7 @@
         </p>
         <div class="mt-0 flex gap-1">
             <div class="flex-grow-1">
-                <label for="day" class="block text-sm font-medium text-gray-700"
+                <label for="day" class="block text-sm font-medium text-gray-500"
                     >Dia</label
                 >
                 <div class="mt-1">
@@ -140,7 +140,7 @@
                 <div>
                     <label
                         for="month"
-                        class="block text-sm font-medium text-gray-700"
+                        class="block text-sm font-medium text-gray-500"
                         >Mês</label
                     >
                     <select
@@ -182,8 +182,8 @@
             <div class="year-container">
                 <label
                     for="year"
-                    class="block text-sm font-medium text-gray-700"
-                    >Ano (AAAA)</label
+                    class="block text-sm font-medium text-gray-500"
+                    >Ano (4 dígitos, ex.: 1970)</label
                 >
                 <div class="mt-1">
                     <input
