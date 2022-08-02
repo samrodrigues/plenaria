@@ -43,7 +43,7 @@ class VoteController extends Controller
         echo nl2br("<h1>Resultado</h1>");
         echo nl2br("<hr>\n");
 
-        echo nl2br("<h2>Total de votos registrados: <strong>{$voterCount}</strong></h2>");
+        echo nl2br("<h2>Total de votantes: <strong>{$voterCount}</strong></h2>");
         echo nl2br("\n");
         foreach ($votes as $candidate) {
             $count = count($candidate);
