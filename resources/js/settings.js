@@ -10,13 +10,21 @@ export const polls = [
     votesPerMember: 0,
     candidates: [
       {
-        id: 1,
-        name: "Presb 1"
+        id: 11,
+        name: "Hermes Hagedorn Júnior"
       },
       {
-        id: 2,
-        name: "Presb 2"
-      }
+        id: 12,
+        name: "Neemias Gonçalves de Carvalho"
+      },
+      {
+        id: 13,
+        name: "Danilo Fernandes dos Reis Sobrinho"
+      },
+      {
+        id: 14,
+        name: "Jacks Fagundes Hasse"
+      },
     ]
   },
   {
@@ -25,13 +33,25 @@ export const polls = [
     votesPerMember: 0,
     candidates: [
       {
-        id: 3,
-        name: "Diác 3"
+        id: 21,
+        name: "Yury Bertolo Macedo"
       },
       {
-        id: 4,
-        name: "Diác 4"
-      }
+        id: 22,
+        name: "Luiz Otávio Martins"
+      },
+      {
+        id: 23,
+        name: "Elvis da Silva Vaz"
+      },
+      {
+        id: 24,
+        name: "Maicoul David dos Santos"
+      },
+      {
+        id: 25,
+        name: "Carlos Eduardo Giardini"
+      },
     ]
   },
 ]
