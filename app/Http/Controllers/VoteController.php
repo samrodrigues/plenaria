@@ -34,6 +34,26 @@ class VoteController extends Controller
         } catch (\Exception $e) {
             return new Response([],400);
         }
+    }
 
+    public function report()
+    {
+        $voterCount = Vote::all()->groupBy('hash')->count();
+        $votes = Vote::all()->groupBy('vote')->sortBy(fn($vote) => -1 * count($vote));
+        echo nl2br("<h1>Resultado</h1>");
+        echo nl2br("<hr>\n");
+
+        echo nl2br("<h2>Total de votos registrados: <strong>{$voterCount}</strong></h2>");
+        echo nl2br("\n");
+        foreach ($votes as $candidate) {
+            $count = count($candidate);
+            if ($candidate[0]['vote'] > 0) {
+                echo nl2br("<p>Candidato {$candidate[0]['vote']}:  <strong>{$count} votos</strong> </p>");
+            } else {
+                echo nl2br("<p>Votos em branco:  <strong>{$count} votos</strong> </p>");
+
+            }
+
+        }
     }
 }
