@@ -9,7 +9,7 @@
             <label :for="`candidate-${candidate.id}`" class="font-medium text-gray-700 select-none" :class="{'text-gray-200': vote.includes(poll.title)}">{{ candidate.name }}</label>
           </div>
           <div class="ml-3 flex items-center h-5">
-            <input :disabled="vote.includes(poll.title)" :id="`candidate-${candidate.id}`" :name="`candidate-${candidate.id}`" v-model="vote" :value="candidate.id" type="checkbox" :class="{'focus:ring-gray-100 text-transparent': vote.includes(poll.title)}" class="focus:ring-emerald-500 h-4 w-4 text-emerald-600 border-gray-300 rounded" />
+            <input :disabled="vote.includes(poll.title)" :id="`candidate-${candidate.id}`" :name="`candidate-${candidate.id}`" v-model="vote" :value="candidate.id" type="checkbox" :class="{'hidden': vote.includes(poll.title)}" class="focus:ring-emerald-500 h-4 w-4 text-emerald-600 border-gray-300 rounded" />
           </div>
         </div>
         <div class="relative flex items-start py-4">
@@ -31,7 +31,7 @@
               hover:bg-emerald-700 focus:outline-none
               focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500
               disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
-              :disabled="loading || !vote.length"><template v-if="loading"><svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-slate-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              :disabled="loading || !isValidVote"><template v-if="loading"><svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-slate-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
       </svg></template><template v-else>Confirmar</template></button>
@@ -51,6 +51,19 @@ export default {
       polls,
       loading: false,
       vote: []
+    }
+  },
+  computed: {
+    isValidVote() {
+      let isValid = true;
+      const vote = [...this.vote];
+      polls.forEach(p => {
+        const pollOptions = [p.title, ...p.candidates.map(c => c.id)];
+        if (!pollOptions.some(o => vote.includes(o))) {
+          isValid = false;
+        }
+      });
+      return isValid;
     }
   },
   methods: {
