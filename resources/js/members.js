@@ -125,7 +125,7 @@ export const members = [
     },
     {
       "name": "Christiano Luiz Guimarães Santos",
-      "dob": ""
+      "dob": "2000-01-01"
     },
     {
       "name": "Christyan Alberto Albues Albuquerque Melo",
@@ -157,7 +157,7 @@ export const members = [
     },
     {
       "name": "Davi Guimarães Nicolino Santos",
-      "dob": ""
+      "dob": "2000-01-01"
     },
     {
       "name": "David Medeiros Charão",
@@ -593,7 +593,7 @@ export const members = [
     },
     {
       "name": "Matheus Nicolino Santos",
-      "dob": ""
+      "dob": "2000-01-01"
     },
     {
       "name": "Máximo Roberto Gonçalves",
@@ -729,7 +729,7 @@ export const members = [
     },
     {
       "name": "Renata Guimarães Nicolino Santos",
-      "dob": ""
+      "dob": "2000-01-01"
     },
     {
       "name": "Ricardo Henrique Cisersa",

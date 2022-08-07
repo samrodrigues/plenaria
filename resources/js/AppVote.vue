@@ -195,7 +195,8 @@ export default {
                 voteList = voteList.filter((v) => !pollIds.includes(v));
             });
 
-            voteList = voteList.map((v) => (pollTitles.includes(v) ? 0 : v));
+            voteList = voteList.map((v) => (pollTitles.includes(v) ? 0 : v)); // remove blank vote markers
+            voteList = Array.from(new Set(voteList)); // remove duplicated blanks
 
             return {
                 hash: hash.MD5(`${name}${dob}`),
