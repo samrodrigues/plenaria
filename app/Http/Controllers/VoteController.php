@@ -13,6 +13,11 @@ class VoteController extends Controller
     {
         $voteList = $request->voteList;
         $hash = $request->hash;
+
+        if (Vote::where('hash', $hash)->first()) {
+            return new Response([],400);
+        };
+
         try {
             // blank vote
             if (count($voteList) == 0) {
@@ -32,7 +37,7 @@ class VoteController extends Controller
             }
             return new Response([],204);
         } catch (\Exception $e) {
-            return new Response([],400);
+            return new Response([],500);
         }
     }
 

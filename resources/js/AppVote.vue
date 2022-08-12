@@ -213,7 +213,12 @@ export default {
                 await axios.post("/api/vote", vote);
                 this.$emit("confirmed", 2);
             } catch (e) {
+              if (e.response.status === 400) {
+                this.$emit("confirmed", 5)
+              } else {
                 this.$emit("confirmed", 3);
+
+              }
             } finally {
                 this.loading = false;
             }
