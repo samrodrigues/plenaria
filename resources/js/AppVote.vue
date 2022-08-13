@@ -24,7 +24,7 @@
                     :key="candidateIdx"
                     class="relative flex items-start py-4"
                 >
-                    <div class="min-w-0 flex-1 text-sm">
+                    <div class="min-w-0 flex-1 text">
                         <label
                             :for="`candidate-${candidate.id}`"
                             class="font-medium text-gray-700 select-none"
@@ -45,8 +45,8 @@
                             :class="{ hidden: vote.includes(poll.title) }"
                             class="
                                 focus:ring-emerald-500
-                                h-4
-                                w-4
+                                h-8
+                                w-8
                                 text-emerald-600
                                 border-gray-300
                                 rounded
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="relative flex items-start py-4">
-                    <div class="min-w-0 flex-1 text-sm">
+                    <div class="min-w-0 flex-1 text">
                         <label
                             :for="`candidate-0`"
                             class="font-medium text-gray-700 select-none"
@@ -71,8 +71,8 @@
                             type="checkbox"
                             class="
                                 focus:ring-emerald-500
-                                h-4
-                                w-4
+                                h-8
+                                w-8
                                 text-emerald-600
                                 border-gray-300
                                 rounded
